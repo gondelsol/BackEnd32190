@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "wine",
+    "price": 350,
+    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD-9DmeKcEqPd8efhRhZP5M1Zh-RbSO95jR1QeckkBk9QfW7bbt1Mg0wiLXROQ8u4FmgM&usqp=CAU"
+  },
+  {
+    "id": 2,
+    "title": "water",
+    "price": 200,
+    "thumbnail": "https://carrefourar.vtexassets.com/arquivos/ids/171464/7798065730033_02.jpg?v=637468539505070000"
+  },
+  {
+    "id": 3,
+    "title": "wine",
+    "price": 350,
+    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD-9DmeKcEqPd8efhRhZP5M1Zh-RbSO95jR1QeckkBk9QfW7bbt1Mg0wiLXROQ8u4FmgM&usqp=CAU"
+  },
+  {
+    "id": 4,
+    "title": "water",
+    "price": 200,
+    "thumbnail": "https://carrefourar.vtexassets.com/arquivos/ids/171464/7798065730033_02.jpg?v=637468539505070000"
+  },
+  {
+    "id": 5,
+    "title": "gaseosa",
+    "price": 350,
+    "thumbnail": "https://static8.depositphotos.com/1020618/980/i/450/depositphotos_9805108-stock-photo-glass-of-cola.jpg"
+  }
+]
