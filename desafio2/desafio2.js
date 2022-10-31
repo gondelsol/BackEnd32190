@@ -100,7 +100,7 @@ class Contenedor {
             } else {
                 const newList = arrProducts.filter(item => item.id != idDelet);
                 console.log('New List', newList);
-                await fs.promises.writeFile(this.route, JSON.stringify(newList, null, 2));
+                await fs.promises.writeFile(this.route, JSON.stringify(newList));
                 return 'finish';
             }
         }
@@ -131,7 +131,7 @@ async function main() {
 //    await usuario.save(product1);
 //    await usuario.save(product3);
 //    await usuario.getById(3);
-//    await usuario.deletById(2);
+    await usuario.deletById(2);
     await usuario.deleteAll();
 
 }
