@@ -100,7 +100,7 @@ class Contenedor {
             } else {
                 const newList = arrProducts.filter(item => item.id != idDelet);
                 console.log('New List', newList);
-                await fs.promises.writeFile(this.route, JSON.stringify(newList));
+                await fs.promises.writeFile(this.route, JSON.stringify(newList, null, 2));
                 return 'finish';
             }
         }
