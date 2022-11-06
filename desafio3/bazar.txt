@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "nombre": "taza",
+    "precio": 3
+  },
+  {
+    "id": 2,
+    "nombre": "tenedor",
+    "precio": 895
+  },
+  {
+    "id": 3,
+    "nombre": "botella",
+    "precio": 50
+  }
+]
