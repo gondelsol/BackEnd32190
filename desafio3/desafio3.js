@@ -1,10 +1,8 @@
-
 const express = require('express')
-
 const app = express()
 
 
-const { error } = require('console');
+const {error} = require('console');
 const fs = require('fs');
 const ruta = './bazar.txt'
 
@@ -55,24 +53,18 @@ class Contenedor {
     //El método ok funciona ok
 
     async getAll() {
-
-            try {
-            const data1 = await fs.promises.readFile(ruta, 'utf-8');
-            const listaJSON = JSON.parse(data1);
-            //console.log(listaJSON);
-            return listaJSON;
+        try {
+            const data1 = await fs.promises.readFile(this.ruta, 'utf-8');
+            return JSON.parse(data1);
         } catch (error) {
-
             console.log('Error al leer el archivo json');
             console.log(error);
-            return 'La lista de productos es: ' + error;
+            return []
         }
-
-
     }
-    //El metodo save fuciona ok
 
- async save(product) {
+
+    async save(product) {
         const listaProductos = await this.getAll();
         let newId;
         if (listaProductos.length == 0) {
@@ -80,12 +72,15 @@ class Contenedor {
         } else {
             newId = listaProductos[listaProductos.length - 1].id + 1;
         }
-        //console.log('El nuevo id es: ', newId)
-        const newProduct = { id: newId, ...product }
+        const newProduct = {
+            id: newId,
+            ...product
+        }
+        console.log('el nuevo producto es', newProduct)
         listaProductos.push(newProduct);
         await fs.promises.writeFile(this.ruta, JSON.stringify(listaProductos, null, 2))
-        return newId;
-        //await this.getAll();
+        return newProduct;
+
     }
 
     //El metodo actualizar funciona ok
@@ -97,16 +92,21 @@ class Contenedor {
         try {
             const listaProductos = await this.getAll();
             const indexProduct = listaProductos.findIndex((o) => o.id == id);
-
             if (indexProduct == -1) {
                 console.log('producto no encontrado')
                 return 'Busqueda erronea'
             } else {
-                listaProductos[indexProduct] = { id, ...product };
+                listaProductos[indexProduct] = {
+                    id,
+                    ...product
+                };
                 await fs.promises.writeFile(this.ruta, JSON.stringify(listaProductos, null, 2));
             }
             console.log('lista actualizada')
-            return { id, ...listaProductos }
+            return {
+                id,
+                ...listaProductos
+            }
 
         } catch (error) {
             console.log('Error en actualización')
@@ -145,7 +145,7 @@ class Contenedor {
             const listaProductos = await this.getAll();
             const indexIndeseado = await listaProductos.findIndex((element) => element.id == id)
 
-            if (indexIndeseado == -1 ) {
+            if (indexIndeseado == -1) {
                 console.log('El producto indeseado que busca no está en la lista')
                 return 'EL ELEMENTO QUE DESEA ELIMINAR NO SE ENCONTRÓ'
             } else {
@@ -158,9 +158,9 @@ class Contenedor {
     }
 
     async deleteAll() {
-        console.log ('Se ejecuta la función borrar todo')
+        console.log('Se ejecuta la función borrar todo')
         try {
-            await fs.promises.writeFile(this.ruta, '[]') //guardo la nueva lista en el archivo
+            await fs.promises.writeFile(this.ruta, JSON.stringify([], null, 2)) //guardo la nueva lista en el archivo
             //await this.getAll();
         } catch (error) {
             return 'no se pudo eliminar nada'
@@ -171,7 +171,7 @@ class Contenedor {
 
 
 
-async function main () {
+async function main() {
 
     const usuario = new Contenedor(ruta);
 
@@ -179,6 +179,8 @@ async function main () {
     await usuario.save(product1);
     await usuario.save(product5);
     await usuario.save(product3);
+    await usuario.save(product4);
+    await usuario.save(product6);
     arrProducts = await usuario.getAll();
     console.log(arrProducts)
 
@@ -190,16 +192,19 @@ async function main () {
         res.send('Pagina de inicio')
     })
 
-    app.get('/products', (req, res) => {
-        res.send('Mostrar la lista de bazar')
+    app.get('/products', async (req, res) => {
         res.send(arrProducts)
     })
+/*
+    app.get('/productos', async (request, response)=>{
+        const products = await usuario.leer();
+        response.send(products);
+    });
+    */
 
     app.get('/productsRandom', async (req, res) => {
-        res.send('producto Aleatorio')
-        const products = await usuario.getAll();
-        const random = Math.floor(Math.round(Math.random()*products.length));
-        res.send(products[random])
+        const random = Math.floor(Math.random() * arrProducts.length);
+        res.send(arrProducts[random])
     })
 
 }
@@ -209,7 +214,7 @@ main();
 
 const PORT = 8080;
 
-const server = app.listen(PORT, ()=> {
+const server = app.listen(PORT, () => {
     console.log(`The server is listening to port http://localhost:${PORT}/`)
 })
 
