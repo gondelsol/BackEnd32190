@@ -60,9 +60,8 @@ usuario.addMascota("Raton");
 
 console.log("la cantidad de mascotas es: " , usuario.countMascotas());
 
-usuario.addBook(libro001);
-usuario.addBook(libro002);
-usuario.addBook(libro003);
+
+usuario.addBook("suma teoligica", "Santo Tomas de Aquino")
 console.log("El nuevo libro es", nuevoLibro)
 usuario.addBook(nuevoLibro);
 console.log("la cantidad de libros es: " , usuario.countLibros());

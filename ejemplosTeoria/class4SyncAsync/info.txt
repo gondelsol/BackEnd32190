@@ -1,0 +1,15 @@
+{
+  "contenidoStr": "{\n  \"name\": \"class4\",\n  \"version\": \"1.0.0\",\n  \"description\": \"paquete json\",\n  \"main\": \"async.js\",\n  \"scripts\": {\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n  },\n  \"author\": \"mio\",\n  \"license\": \"ISC\"\n}\n",
+  "contenidoObj": {
+    "name": "class4",
+    "version": "1.0.0",
+    "description": "paquete json",
+    "main": "async.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "mio",
+    "license": "ISC"
+  },
+  "size": 217
+}

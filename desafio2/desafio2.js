@@ -89,16 +89,16 @@ class Contenedor {
         }
     }
 
-    async deletById(idDelet) {                  //TENGO PROBLEMAS PARA GUARDAR LA NUEVA LISTA
-        console.log('Delet element by id', idDelet);
+    async deletById(id) {                  //TENGO PROBLEMAS PARA GUARDAR LA NUEVA LISTA
+        console.log('Delet element by id', id);
         try {
             const arrProducts = await this.getAll();
-            const indexDelet = await arrProducts.findIndex((element) => element.id == idDelet)
+            const indexDelet = await arrProducts.findIndex((element) => element.id == id)
             if (indexDelet == -1) {
                 console.log('Product did not find because it is not in the list');
                 return 'ERROR TO DELETE BY ID';
             } else {
-                const newList = arrProducts.filter(item => item.id != idDelet);
+                const newList = arrProducts.filter(item => item.id != id);
                 console.log('New List', newList);
                 await fs.promises.writeFile(this.route, JSON.stringify(newList, null, 2));
                 return 'finish';
@@ -114,8 +114,7 @@ class Contenedor {
     async deleteAll() {
         console.log('Cleaning the list')
         try {
-            await fs.promises.writeFile(this.route, '[]');
-            await this.getAll();
+            await fs.promises.writeFile(this.route, JSON.stringify([], null, 2));
         }
         catch (err) {
             return 'Nothing was deleted'
@@ -128,10 +127,10 @@ class Contenedor {
 async function main() {
     const usuario = new Contenedor(route);
 
-//    await usuario.save(product1);
+     await usuario.save(product1);
 //    await usuario.save(product3);
-//    await usuario.getById(3);
-    await usuario.deletById(2);
+    await usuario.getById(2);
+//    await usuario.deletById(2);
     await usuario.deleteAll();
 
 }
