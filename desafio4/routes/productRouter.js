@@ -1,90 +1,53 @@
 const express = require('express');
 const {Router} = express;
 const router = Router();
+const { Contenedor} = require('../Classes.js')
 
-
-//const { Contenedor} = require('../Classes.js')
-//const {app} = require('./Utils.js')
-
-
-//const ruta = './products.txt'
-//const usuario = new Contenedor(ruta);
+const producto = new Contenedor('../products.json');
 
 // Devuelve todos los productos
 router.get('/', async (req, res) => {
-    res.json({"nombre": "'joaquin'" })
+    const productos = await producto.getAll();
+    res.send(productos);
+});
+
+
+
+router.get('/', async (req, res) => {
+    const productos = await producto.getAll();
+    res.send(productos);
+});
+
+router.get('/:id', async (req, res) => {
+    producto.getById(req.params.id)
+    .then(response => {
+        if(response === null) {
+            throw new Error('producto no encontrado');
+        }
+        res.send(response)
+    })
+    .catch(error => res.send({error: error.message}));
+});
+
+router.post("/", async (req, res) => {
+    const idNuevoProducto = await producto.save(req.body);
+    res.status(200).json({id: idNuevoProducto});
+});
+ 
+router.put("/:id", async (req, res) => {
+    const id = req.params.id;
+    const data = req.body;
+    // console.log(data);
+    const resProducto = await producto.updateById(id, data);
+
+    res.send("Producto actualizado: " + JSON.stringify(resProducto));
+});
+
+router.delete("/:id", async (req, res) => {
+    const id = req.params.id;
+    await producto.deleteById(id);
+    res.send("Producto eliminado");
 })
 
-/*
-//devuelve un producto segun su ID
-app.get('/:id', async (req, res) => {
-    const num = req.params.id
-    if (isNaN(num)) {
-        return res.json({
-            error: "El parametro ingresado no es un numero"
-        })
-    }
-    if (num > arrProducts.length) {
-        return res.json({
-            error: "El parametro ingresado esta fuera de rango"
-        })
-    }
-    usuario.getById(num)
-    res.json(arrProducts[num - 1])
-})
 
-//Recibe y actualiza un producto según su id.
-app.post('/:id', (req, res)=> {
-    const num = req.params.id
-    if (isNaN(num)) {
-        return res.json({
-            error: "El parametro ingresado no es un numero"
-        })
-    }
-    if (num > arrProducts.length) {
-        return res.json({
-            error: "El parametro ingresado esta fuera de rango"
-        })
-    }
-    usuario.actualizar() //ver esta linea #{$clave}
-    res.json(arrProducts)
-})
-
-
-// recibe y actualiza un producto según su id
-app.put('/:id', async (req, res) => {
-    const num = req.params.id
-    if (isNaN(num)) {
-        return res.json({
-            error: "El parametro ingresado no es un numero"
-        })
-    }
-    if (num > arrProducts.length) {
-        return res.json({
-            error: "El parametro ingresado esta fuera de rango"
-        })
-    }
-    usuario.save() //ver esta linea
-    arrProducts = await usuario.getAll()
-    res.json(arrProducts)
-})
-
-//Borra un producto
-app.delete('/:id', async (req, res) => {
-    const num = req.params.id
-    if (isNaN(num)) {
-        return res.json({
-            error: "El parametro ingresado no es un numero"
-        })
-    }
-    if (num > arrProducts.length) {
-        return res.json({
-            error: "El parametro ingresado esta fuera de rango"
-        })
-    }
-    usuario.deletById(num)
-    res.json(arrProducts)
-})
-
-*/
 module.exports = router;

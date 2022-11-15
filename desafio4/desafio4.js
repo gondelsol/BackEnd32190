@@ -1,5 +1,5 @@
 const { Contenedor} = require('./Classes.js')
-const {app} = require('./Utils.js')
+const {app} = require('./Index.js')
 const { error} = require('console');
 const { Router } = require('express');
 const { generateKey } = require('crypto');
@@ -45,22 +45,22 @@ const product6 = {
 
 async function main() {
 
-   const usuario = new Contenedor(ruta);
+  // const usuario = new Contenedor(ruta);
 
-    await usuario.deleteAll();
-    await usuario.save(product1);
-    await usuario.save(product5);
-    await usuario.save(product3);
-    await usuario.save(product4);
-    await usuario.save(product6);
-    await usuario.save(product2);
+    //await usuario.deleteAll();
+    //await usuario.save(product1);
+    //await usuario.save(product5);
+    //await usuario.save(product3);
+    //await usuario.save(product4);
+    //await usuario.save(product6);
+    //await usuario.save(product2);
     //    await usuario.getById(5);
-    arrProducts = await usuario.getAll();
-    console.log(arrProducts)
+    //arrProducts = await usuario.getAll();
+    //console.log(arrProducts)
 
 
-    app.use('/', indexRouter);
-    app.use('/api/productos', productRouter);
+    //app.use('/', indexRouter);
+    //app.use('/api/productos', productRouter);
 
     //app.use(express.json());
     

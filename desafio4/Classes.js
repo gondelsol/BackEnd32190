@@ -1,122 +1,91 @@
-const fs = require('fs')
-
+const fs = require('fs');
 class Contenedor {
-    constructor(ruta) {
-        this.ruta = ruta
+    constructor(nombre_archivo){
+        this.nombre_archivo = nombre_archivo;
     }
 
-    //listar Productos
+    async save(data){
+        const arrData = await this.getAll();
+        data.id = 1;
 
-    async getAll() {
+        // SI el archivo existe, obtiene el ultimo id y le suma 1
+        if(arrData.length > 0){
+            data.id = arrData[arrData.length - 1].id + 1;
+        }
+        arrData.push(data);
         try {
-            const data1 = await fs.promises.readFile(this.ruta, 'utf-8');
-            return JSON.parse(data1);
-        } catch (error) {
-            console.log('Error al leer el archivo json');
-            console.log(error);
-            return []
+            await fs.promises.writeFile(this.nombre_archivo, JSON.stringify(arrData));
+            return data.id;
+        }
+        catch (error) {
+            console.warn(error);
         }
     }
 
-
-    async save(product) {
-        const listaProductos = await this.getAll();
-        let newId;
-        if (listaProductos.length == 0) {
-            newId = 1;
-        } else {
-            newId = listaProductos[listaProductos.length - 1].id + 1;
-        }
-        const newProduct = {
-            id: newId,
-            ...product
-        }
-        console.log('el nuevo producto es', newProduct)
-        listaProductos.push(newProduct);
-        await fs.promises.writeFile(this.ruta, JSON.stringify(listaProductos, null, 2))
-        return newProduct;
-
-    }
-
-    async actualizar(id, product) {
-
-        console.log('Actualizar elementos', id, product)
-
+    async getById(id){
+        const arrData = await this.getAll();
         try {
-            const listaProductos = await this.getAll();
-            const indexProduct = listaProductos.findIndex((o) => o.id == id);
-            if (indexProduct == -1) {
-                console.log('producto no encontrado')
-                return 'Busqueda erronea'
-            } else {
-                listaProductos[indexProduct] = {
-                    id,
-                    ...product
-                };
-                await fs.promises.writeFile(this.ruta, JSON.stringify(listaProductos, null, 2));
+            const theElement = arrData.find(item => item.id == id);
+            if(theElement == undefined){
+                throw new Error('No existe el id seleccionado');
             }
-            console.log('lista actualizada')
-            return {
-                id,
-                ...listaProductos
+            return theElement;
+        }
+        catch (error) {
+            console.warn(`Error al obtener: ${error.message}`);
+            return null;
+        }
+    }
+    async updateById(id, data){
+        const arrData = await this.getAll();
+        try {
+            const refProd = arrData.findIndex(item => item.id == id);
+            if(refProd < 0){
+                throw new Error('No existe el id seleccionado');
             }
-
-        } catch (error) {
-            console.log('Error en actualización')
+            arrData[refProd].title = data.title;
+            arrData[refProd].price = data.price;
+            arrData[refProd].thumbnail = data.thumbnail;
+            console.log("Producto", arrData);
+            await fs.promises.writeFile(this.nombre_archivo, JSON.stringify(arrData));
+            return arrData[refProd];
+        }
+        catch (error) {
+            console.warn(`Error al obtener: ${error.message}`);
+            return null;
+        }
+    }
+    async getAll(){
+        try {
+            let data = await fs.promises.readFile(this.nombre_archivo, 'utf8');
+            return await JSON.parse(data);
+        }
+        catch(error) {
+            console.log('El archivo no existe, devuelvo vacío');
+            return [];
         }
     }
 
-    //El metodo getbyId funciona ok
-
-    async getById(id) {
-
-        console.log('buscar producto por id')
-
+    async deleteById(id){
+        const arrData = await this.getAll();
         try {
-            const listaProductos = await this.getAll();
-            const indexProduct = listaProductos.findIndex((o) => o.id == id);
-
-            if (indexProduct == -1) {
-                console.log('producto no encontrado')
-                //return 'Busqueda erronea'
-            } else {
-                const busqueda = listaProductos[indexProduct];
-                console.log('El producto buscado es', busqueda)
+            if(await this.getById(id) == null){
+                throw new Error('No existe el id seleccionado');
             }
-            return 'La busqueda terminó';
-
-        } catch (error) {
-            console.log('Error en busqueda')
+            const newData = arrData.filter(item => item.id != id);
+            await fs.promises.writeFile(this.nombre_archivo, JSON.stringify(newData));
         }
-    }
-
-    async deletById(id) {
-
-        console.log('eliminar archivo por id')
-
-        try {
-            const listaProductos = await this.getAll();
-            const indexIndeseado = await listaProductos.findIndex((element) => element.id == id)
-
-            if (indexIndeseado == -1) {
-                console.log('El producto indeseado que busca no está en la lista')
-                return 'EL ELEMENTO QUE DESEA ELIMINAR NO SE ENCONTRÓ'
-            } else {
-                const newList = listaProductos.filter(item => item.id != id);
-                await fs.promises.writeFile(this.ruta, JSON.stringify(newList, null, 2));
-            }
-        } catch (error) {
-            return 'no se pudo eliminar nada'
+        catch (error) {
+            console.warn(`Error al eliminar: ${error.message}`);
         }
     }
 
     async deleteAll() {
-        console.log('Se ejecuta la función borrar todo')
         try {
-            await fs.promises.writeFile(this.ruta, JSON.stringify([], null, 2)) //guardo la nueva lista en el archivo
-            //await this.getAll();
-        } catch (error) {
-            return 'no se pudo eliminar nada'
+            await fs.promises.writeFile(this.nombre_archivo, '[]');
+        }
+        catch (error) {
+            console.warn(`Error al eliminar todos: ${error.message}`);
         }
     }
 }

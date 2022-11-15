@@ -1,32 +1,38 @@
 [
     {
-        "nombre": "taza",
-        "precio": 3,
-        "thumbnail": "https://th.bing.com/th/id/R.5cf35a4c02aac9ca2af74a7a1a0bfecf?rik=c9UveAxkxk%2bi3w&pid=ImgRaw&r=0"
+        "title": "taza",
+        "price": 3,
+        "thumbnail": "https://th.bing.com/th/id/R.5cf35a4c02aac9ca2af74a7a1a0bfecf?rik=c9UveAxkxk%2bi3w&pid=ImgRaw&r=0",
+        "id":1
     },
     {
-        "nombre": "jarra",
-        "precio": 40,
-        "thumbnail": "https://th.bing.com/th/id/OIP.H8Fd_iDYZSDBE-jonfmCfAHaHa?pid=ImgDet&rs=1"
+        "title": "jarra",
+        "price": 40,
+        "thumbnail": "https://th.bing.com/th/id/OIP.H8Fd_iDYZSDBE-jonfmCfAHaHa?pid=ImgDet&rs=1",
+        "id":2
     },
     {
-        "nombre": "botella",
-        "precio": 50,
-        "thumbnail": "https://th.bing.com/th/id/OIP.WARo0ETFHkjKhJB1fqLsVgHaHa?pid=ImgDet&rs=1"
+        "title": "botella",
+        "price": 50,
+        "thumbnail": "https://th.bing.com/th/id/OIP.WARo0ETFHkjKhJB1fqLsVgHaHa?pid=ImgDet&rs=1",
+        "id":3
     },
     {
-        "nombre": "cuchillo",
-        "precio": 65,
-        "thumbnail": "https://th.bing.com/th/id/OIP.jzLoc9-0mHGzVOT3Zn-5GgHaHa?pid=ImgDet&rs=1"
+        "title": "cuchillo",
+        "price": 65,
+        "thumbnail": "https://th.bing.com/th/id/OIP.jzLoc9-0mHGzVOT3Zn-5GgHaHa?pid=ImgDet&rs=1",
+        "id":4
     },
     {
-        "nombre": "tenedor",
-        "precio": 895,
-        "thumbnail": "https://th.bing.com/th/id/R.175374a3e0520686fea44a043eaf0252?rik=ajGrN0rjk6SGAg&pid=ImgRaw&r=0"
+        "title": "tenedor",
+        "price": 895,
+        "thumbnail": "https://th.bing.com/th/id/R.175374a3e0520686fea44a043eaf0252?rik=ajGrN0rjk6SGAg&pid=ImgRaw&r=0",
+        "id":5
     },
     {
-        "nombre": "cuchara",
-        "precio": 36,
-        "thumbnail": "https://th.bing.com/th/id/R.76223ae09799ed60418c4f207206c6b9?rik=sEm5iQbTpnF5kQ&pid=ImgRaw&r=0"
+        "title": "cuchara",
+        "price": 36,
+        "thumbnail": "https://th.bing.com/th/id/R.76223ae09799ed60418c4f207206c6b9?rik=sEm5iQbTpnF5kQ&pid=ImgRaw&r=0",
+        "id":6
     }
 ]
