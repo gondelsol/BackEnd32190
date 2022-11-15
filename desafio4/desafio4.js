@@ -1,11 +1,11 @@
-//const { Contenedor} = require('./Classes.js')
+const { Contenedor} = require('./Classes.js')
 const {app} = require('./Utils.js')
 const { error} = require('console');
 const { Router } = require('express');
 const { generateKey } = require('crypto');
 const router = Router()
 
-const indexRouter = require('./routes/indexRouter');
+const indexRouter = require('./routes/indexRouter.js');
 const productRouter = require ('./routes/productRouter.js')
 
 
@@ -62,7 +62,7 @@ async function main() {
     app.use('/', indexRouter);
     app.use('/api/productos', productRouter);
 
-    app.use(express.json());
+    //app.use(express.json());
     
 
     //app.use('/api/productos', productRouter);

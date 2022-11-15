@@ -2,19 +2,20 @@ const express = require('express');
 const {Router} = express;
 const router = Router();
 
-const { Contenedor} = require('../Classes.js')
-const {app} = require('./Utils.js')
+
+//const { Contenedor} = require('../Classes.js')
+//const {app} = require('./Utils.js')
 
 
 //const ruta = './products.txt'
 //const usuario = new Contenedor(ruta);
 
 // Devuelve todos los productos
-app.get('/', async (req, res) => {
-    res.json(arrProducts)
+router.get('/', async (req, res) => {
+    res.json({"nombre": "'joaquin'" })
 })
 
-
+/*
 //devuelve un producto segun su ID
 app.get('/:id', async (req, res) => {
     const num = req.params.id
@@ -85,4 +86,5 @@ app.delete('/:id', async (req, res) => {
     res.json(arrProducts)
 })
 
+*/
 module.exports = router;

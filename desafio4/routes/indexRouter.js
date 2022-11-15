@@ -3,10 +3,7 @@ const {Router} = express;
 const router = Router();
 
 router.get('/', (req, res)=>{
-    res.send('index del desafio 4')
+    res.send('<h1>Index del desafio 4</h1>')
 })
 
 module.exports = router;
-
-
-

@@ -6,8 +6,8 @@ const PORT = 8080;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname,'src/public')))
-console.log(path.join(__dirname,'src/public'));
+app.use(express.static(path.join(__dirname,'/desafio4/public')))
+console.log(path.join(__dirname,'/desafio4/public'));
 
 
 

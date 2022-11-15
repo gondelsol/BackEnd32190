@@ -21,7 +21,7 @@
   },
   {
     "id": 5,
-    "nombre": "taza",
+    "nombre": "cuchara",
     "precio": 36
   },
   {
