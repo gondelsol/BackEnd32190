@@ -3,7 +3,7 @@ const {Router} = express;
 const router = Router();
 const { Contenedor} = require('../Classes.js')
 
-const producto = new Contenedor('../products.json');
+const producto = new Contenedor('./products.json');
 
 // Devuelve todos los productos
 router.get('/', async (req, res) => {
