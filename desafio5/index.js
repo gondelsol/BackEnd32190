@@ -41,6 +41,19 @@ app.engine('ejs', async (filePath, options, callback) => {
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
+
+app.get('/', (req, res) => {
+    res.render('pages/home');
+});
+
+app.get('/products', async (req, res) => {
+    const productos = await producto.getAll();
+    res.render('pages/products', {productos: productos, cantidad: productos.length});
+});
+
+
+
+/*
 app.get('/', (req, res) => {
 
     const obj = {
@@ -63,6 +76,10 @@ app.get('/products', (req, res) => {
 
     res.render('products', obj)
 })
+
+*/
+
+
 
 const server = app.listen(PORT, () => {
     console.log(`The server is listening to port ${server.address().port}/`)

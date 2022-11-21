@@ -4,64 +4,52 @@
     <meta charset="utf-8">
     <title>Productos</title>
     <!-- Font Awesome -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    rel="stylesheet"
-    />
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"    rel="stylesheet" />
     <!-- Google Fonts -->
-    <link
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    rel="stylesheet"
-    />
+    <link  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"    rel="stylesheet" />
     <!-- MDB -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css"
-    rel="stylesheet"
-    />
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css"    rel="stylesheet"/>
 
 </head>
 <body>
-    <%- include('./encabezado.ejs') %>
+    <%- include('../partials/encabezado.ejs') %>
     <div class="container my-4">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <h1 class="text-center h2">Ingrese un producto</h1>
+                <h1 class="text-center h2">Insert Product</h1>
                 <form name="formulario" id="formulario" method="post">
                     <!-- Título input -->
                     <div class="form-outline mb-4">
                         <input type="text" id="title" name="title" class="form-control" required/>
-                        <label class="form-label" for="title">Título</label>
+                        <label class="form-label" for="title">Title</label>
                     </div>
             
                     <!-- Precio input -->
                     <div class="form-outline mb-4">
                         <input type="number" id="price" name="price" class="form-control" required/>
-                        <label class="form-label" for="price">Precio</label>
+                        <label class="form-label" for="price">Price</label>
                     </div>
             
                     <!-- Thumbnail input -->
                     <div class="form-outline mb-4">
                         <input type="text" id="thumbnail" name="thumbnail" class="form-control" required/>
-                        <label class="form-label" for="thumbnail">Link de miniatura</label>
+                        <label class="form-label" for="thumbnail">Thumbnail</label>
                     </div>
             
                     <!-- Submit button -->
-                    <button type="submit" id="btnEnviar" class="btn btn-dark btn-block mb-4">Agregar Producto</button>
+                    <button type="submit" id="btnEnviar" class="btn btn-info btn-block mb-4">Insert</button>
                 </form>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <a href="/productos" class="text-dark">Ir al listado de productos</a>
+                <a href="/products" type="button" class="btn btn-warning">List of products</a>
             </div>
         </div>
     </div>
-    <script src="/src/public.js" type="module"></script>
-    
-    <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"
-    ></script>
+    <%- include('../partials/footer.ejs') %>
+    <script src="../public/public.js" type="module"></script>
+    <script    type="text/javascript"    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
