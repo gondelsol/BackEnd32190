@@ -53,8 +53,6 @@ router.delete("/:id", async (req, res) => {
 
 */
 
-router.get('/', async (req, res) => {
-    res.render('../views/pages/home');
-});
+
 
 module.exports = router;
