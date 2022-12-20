@@ -1,0 +1,32 @@
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center h2">Listado de productos</h1>
+            {{#if cantidad}}
+            <table class="table table-light table-hover">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Foto</th>
+                </tr>
+                {{#each productos}}
+                <tr>
+                    <td>{{title}}</td>
+                    <td>{{price}}</td>
+                    <td><img src="{{thumbnail}}" style="max-height: 30px; vertical-align:middle;"></td>
+                </tr>
+                {{/each}}
+            </table>
+            {{else}}
+            <div class="alert alert-warning" role="alert">
+               No se encontraron productos
+            </div>
+            {{/if}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <a href="/">Ingresar un nuevo producto</a>
+        </div>
+    </div>
+</div>

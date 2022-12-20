@@ -1,0 +1,57 @@
+doctype html
+head
+  meta(charset='utf-8')
+  title Productos
+  // Font Awesome
+  link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet')
+  // Google Fonts
+  link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet')
+  // MDB
+  link(href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css' rel='stylesheet')
+
+body
+// Navbar
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  // Container wrapper
+  .container
+    // Navbar brand
+    a.navbar-brand.me-2(href='/') Productos
+    // Toggle button
+    button.navbar-toggler(type='button' data-mdb-toggle='collapse' data-mdb-target='#navbarButtonsExample' aria-controls='navbarButtonsExample' aria-expanded='false' aria-label='Toggle navigation')
+      i.fas.fa-bars
+    // Collapsible wrapper
+    #navbarButtonsExample.collapse.navbar-collapse
+      // Left links
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        li.nav-item
+          a.nav-link(href='/') Agregar Producto
+        li.nav-item
+          a.nav-link(href='/productos') Listado de productos
+    // Collapsible wrapper
+    // Container wrapper
+
+.container.my-4
+    .row
+        .col-md-6.offset-md-3
+            h1.text-center.h2 Ingrese un producto
+            form#formulario(name='formulario' method='post')
+                // Título input
+                .form-outline.mb-4
+                    input#title.form-control(type='text' name='title' required='')
+                    label.form-label(for='title') T&iacute;tulo
+                // Precio input
+                .form-outline.mb-4
+                    input#price.form-control(type='number' name='price' required='')
+                    label.form-label(for='price') Precio
+                // Thumbnail input
+                .form-outline.mb-4
+                    input#thumbnail.form-control(type='text' name='thumbnail' required='')
+                    label.form-label(for='thumbnail') Link de miniatura
+                // Submit button
+                button#btnEnviar.btn.btn-dark.btn-block.mb-4(type='submit') Agregar Producto
+        .row
+            .col-md-6.offset-md-3
+                a.url.text-dark(href='/productos') Ir al listado de productos
+script(src='/src/public.js' type='module')
+script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js')
+script(src='//cdn.jsdelivr.net/npm/sweetalert2@11')

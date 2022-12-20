@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Productos</title>
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css"
+    rel="stylesheet"
+    />
+
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center h2">Listado de productos</h1>
+                <% if (cantidad) { %>
+                <table class="table table-light table-hover">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Foto</th>
+                    </tr>
+                    <% for (let producto of productos) { %>
+                    <tr>
+                        <td><%= producto.title %></td>
+                        <td><%= producto.price %></td>
+                        <td><img src="<%= producto.thumbnail %>" style="max-height: 30px; vertical-align:middle;"></td>
+                    </tr>
+                    <% } %>
+                </table>
+                <% } else { %>
+                <div class="alert alert-warning" role="alert">
+                No se encontraron productos
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <a href="/" class="text-dark">Ingresar un nuevo producto</a>
+            </div>
+        </div>
+    </div>
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"
+    ></script>
+</body>
+</html>

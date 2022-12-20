@@ -1,0 +1,58 @@
+doctype html
+head
+  meta(charset='utf-8')
+  title Productos
+  // Font Awesome
+  link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet')
+  // Google Fonts
+  link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet')
+  // MDB
+  link(href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css' rel='stylesheet')
+
+body
+// Navbar
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  // Container wrapper
+  .container
+    // Navbar brand
+    a.navbar-brand.me-2(href='/') Productos
+    // Toggle button
+    button.navbar-toggler(type='button' data-mdb-toggle='collapse' data-mdb-target='#navbarButtonsExample' aria-controls='navbarButtonsExample' aria-expanded='false' aria-label='Toggle navigation')
+      i.fas.fa-bars
+    // Collapsible wrapper
+    #navbarButtonsExample.collapse.navbar-collapse
+      // Left links
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        li.nav-item
+          a.nav-link(href='/') Agregar Producto
+        li.nav-item
+          a.nav-link(href='/productos') Listado de productos
+    // Collapsible wrapper
+  // Container wrapper
+.container.my-4
+  .row
+    .col-md-6.offset-md-3
+        h1.text-center.h2 Listado de productos
+        if cantidad
+            table.table.table-light.table-hover
+                tr
+                    th Nombre
+                    th Precio
+                    th Foto
+                // {{#each productos}}
+                each producto in productos
+                    tr
+                        td=producto.title
+                        td=producto.price
+                        td
+                            img(src=producto.thumbnail style='max-height: 30px; vertical-align:middle;')
+                // {{/each}}
+        else
+            .alert.alert-warning(role='alert')
+                | No se encontraron productos
+    .row
+        .col-md-6.offset-md-3
+            a.text-dark(href='/') Ingresar un nuevo producto
+script(src='/src/public.js' type='module')
+script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js')
+script(src='//cdn.jsdelivr.net/npm/sweetalert2@11')

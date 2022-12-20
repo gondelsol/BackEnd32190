@@ -1,0 +1,35 @@
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center h2">Ingrese un producto</h1>
+            <form name="formulario" id="formulario" method="post">
+                <!-- Título input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="title" name="title" class="form-control" required/>
+                    <label class="form-label" for="title">Título</label>
+                </div>
+        
+                <!-- Precio input -->
+                <div class="form-outline mb-4">
+                    <input type="number" id="price" name="price" class="form-control" required/>
+                    <label class="form-label" for="price">Precio</label>
+                </div>
+        
+                <!-- Thumbnail input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="thumbnail" name="thumbnail" class="form-control" required/>
+                    <label class="form-label" for="thumbnail">Link de miniatura</label>
+                </div>
+        
+                <!-- Submit button -->
+                <button type="submit" id="btnEnviar" class="btn btn-primary btn-block mb-4">Agregar Producto</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <a href="/productos" class="url">Ir al listado de productos</a>
+        </div>
+    </div>
+</div>
+<script src="/src/public.js" type="module"></script>
