@@ -1,0 +1,24 @@
+<div class="col-md-6 offset-md-3">
+    <hr>
+    <p class="text-center h3">Listado de productos</p>
+    {{#if productos.length}}
+    <table class="table table-light table-hover">
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Foto</th>
+        </tr>
+        {{#each productos}}
+        <tr>
+            <td>{{title}}</td>
+            <td>{{price}}</td>
+            <td><img src="{{thumbnail}}" style="max-height: 30px; vertical-align:middle;"></td>
+        </tr>
+        {{/each}}
+    </table>
+    {{else}}
+    <div class="alert alert-warning" role="alert">
+        No se encontraron productos
+    </div>
+    {{/if}}
+</div>
