@@ -1,27 +1,20 @@
-const express = require('express')
-const app = express()
-const path=require('path')
-
-
-const indexRouter = require('./routes/indexRouter.js');
-const productRouter = require ('./routes/productRouter.js')
+const express = require('express');
+const app = express();
+const path = require('path');
 
 const PORT = 8080;
-
-
+const indexRouter = require('./src/routes/indexRouter');
+const productosRouter = require('./src/routes/productosRouter');
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname,'./public')))
-console.log(path.join(__dirname,'./public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname,'src/public')));
+console.log(path.join(__dirname,'src/public'));
+// console.clear();
+app.use('/', indexRouter);
+app.use('/api/productos', productosRouter);
 
-app.use('/api', indexRouter);
-app.use('/api/productos', productRouter);
-
+// Conexión al puerto
 const server = app.listen(PORT, () => {
-    console.log(`The server is listening to port http://localhost:${PORT}/`)
-})
-
-
-server.on('error', error => console.log('There is an error' + error))
-
-module.exports={app}
+    console.log(`Servidor escuchando en el puerto ${server.address().port}`);
+});
+server.on('error', error => console.log(`Error en el servidor: ${error}`));
