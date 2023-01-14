@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Productos</title>
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css"
+    rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
+
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="alert alert-success d-flex justify-content-between" role="alert" data-mdb-color="success">
+                    <span id="userData" class="align-self-center"></span>
+                    <a href="/logout" class="btn btn-danger">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center h2">Ingrese un producto</h1>
+                <form name="formulario" id="formulario" method="post">
+                    <!-- Título input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="title" name="title" class="form-control" required/>
+                        <label class="form-label" for="title">Título</label>
+                    </div>
+            
+                    <!-- Precio input -->
+                    <div class="form-outline mb-4">
+                        <input type="number" id="price" name="price" class="form-control" required/>
+                        <label class="form-label" for="price">Precio</label>
+                    </div>
+            
+                    <!-- Thumbnail input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="thumbnail" name="thumbnail" class="form-control" required/>
+                        <label class="form-label" for="thumbnail">Link de miniatura</label>
+                    </div>
+            
+                    <!-- Submit button -->
+                    <button type="submit" id="btnEnviar" class="btn btn-primary btn-block mb-4">Agregar Producto</button>
+                </form>
+            </div>
+        </div>
+        <div id="productos" class="row"></div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card bg-light text-start">
+                    <form name="formMessages" id="formMessages" method="post">
+                        <div class="card-header fw-bold">
+                            <p class="text-center">Centro de Mensajes</p>
+                            <p id="porcentaje" class="text-center"></p>
+                            <div class="form-outline mb-4">
+                                <input type="text" id="email" name="email" class="form-control" required/>
+                                <label class="form-label" for="email">Email</label>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="text" id="nombre" name="nombre" class="form-control" required/>
+                                <label class="form-label" for="nombre">Nombre</label>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="text" id="apellido" name="apellido" class="form-control" required/>
+                                <label class="form-label" for="apellido">Apellido</label>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="number" id="edad" name="edad" class="form-control" required/>
+                                <label class="form-label" for="edad">Edad</label>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="text" id="alias" name="alias" class="form-control" required/>
+                                <label class="form-label" for="alias">Alias</label>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="text" id="avatar" name="avatar" class="form-control" required/>
+                                <label class="form-label" for="email">Avatar</label>
+                            </div>
+                        </div>
+                        <div class="card-body" id="messages">
+                        </div>
+                        <div class="card-footer d-flex text-muted">
+                            <div class="form-outline mb-2 col-8">
+                                <input type="text" id="message" name="message" class="form-control" required/>
+                                <label class="form-label" for="message">Mensaje</label>
+                            </div>
+                            <div class="mb-2 col-4 text-center">
+                                <button class="btn btn-primary">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <script src="/src/public.js" type="module"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+</body>
+</html>
