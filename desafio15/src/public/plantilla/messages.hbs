@@ -1,0 +1,16 @@
+<div class="col-md-12">
+    {{#if productos.length}}
+        {{#each productos}}
+            <p class="m-0">
+                <b class="text-primary fw-bold">{{author.id}}</b> 
+                <span style="color: brown;">[{{formatDate dateTime }}]</span>: 
+                <i style="color: green;">{{text}}</i>
+                <img src="{{author.avatar}}" alt="" style="width: 20px;">
+            </p>
+        {{/each}}
+    {{else}}
+    <div class="alert alert-warning" role="alert">
+        Chat vacío
+    </div>
+    {{/if}}
+</div>
