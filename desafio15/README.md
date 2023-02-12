@@ -11,7 +11,7 @@ pm2  start app.js --name="8083" --watch -i 3  -- -- 4002
 pm2  start app.js --name="8084" --watch -i 3  -- -- 4003
 pm2  start app.js --name="8085" --watch -i 3  -- -- 4004
 
-Configuración Nginx.exe 
+Configuración Nginx.exe
 worker_processes  1;
 events {
     worker_connections  1024;
