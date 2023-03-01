@@ -1,0 +1,257 @@
+<style>
+    @media (min-width: 992px){
+        .w-lg-auto {width:auto !important;}
+    }
+</style>
+<!-- Loader Start -->
+{{> fullpage-loader }}
+<!-- Loader End -->
+
+<!-- Header Start -->
+{{> header }}
+<!-- Header End -->
+
+<!-- mobile fix menu start -->
+<div class="mobile-menu d-md-none d-block mobile-cart">
+    <ul>
+        <li class="active">
+            <a href="index.html">
+                <i class="iconly-Home icli"></i>
+                <span>Home</span>
+            </a>
+        </li>
+
+        <li class="mobile-category">
+            <a href="javascript:void(0)">
+                <i class="iconly-Category icli js-link"></i>
+                <span>Category</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="search.html" class="search-box">
+                <i class="iconly-Search icli"></i>
+                <span>Search</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="wishlist.html" class="notifi-wishlist">
+                <i class="iconly-Heart icli"></i>
+                <span>My Wish</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="cart.html">
+                <i class="iconly-Bag-2 icli fly-cate"></i>
+                <span>Cart</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- mobile fix menu end -->
+
+<!-- Breadcrumb Section Start -->
+{{> breadcrumb }}
+<!-- Breadcrumb Section End -->
+
+<input type="hidden" name="userCart" id="userCart" value="{{ user.cart.id }}">
+<!-- Cart Section Start -->
+<section class="cart-section section-b-space">
+    <div class="container-fluid-lg">
+        <div class="row g-sm-5 g-3">
+            <div class="col-xxl-3">
+                <div class="summery-box p-sticky">
+                    <div class="summery-header">
+                        <h3 id="formTitle">Ingrese un producto</h3>
+                    </div>
+
+                    <div class="summery-contain">
+                        <div class="coupon-cart">
+                            <form class="row g-4" id="productForm">
+                                <input type="hidden" name="id" id="id" value="">
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-floating theme-form-floating log-in-form">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Título" required>
+                                        <label for="name">Título</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-floating theme-form-floating log-in-form">
+                                        <input type="text" class="form-control" id="description" name="description" placeholder="Descripción" required>
+                                        <label for="description">Descripción</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-floating theme-form-floating log-in-form">
+                                        <input type="text" class="form-control" id="code" name="code" placeholder="Código" required>
+                                        <label for="code">Código</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-floating theme-form-floating log-in-form">
+                                        <input type="text" class="form-control" id="price" name="price" placeholder="Precio" required>
+                                        <label for="price">Precio</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-floating theme-form-floating log-in-form">
+                                        <input type="text" class="form-control" id="stock" name="stock" placeholder="Stock" required>
+                                        <label for="stock">Stock</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-floating theme-form-floating log-in-form">
+                                        <input type="text" class="form-control" id="image" name="image" placeholder="Link de miniatura" required>
+                                        <label for="image">Link de miniatura</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex flex-wrap">
+                                    <button id="btn-save" class="btn btn-animation fw-bold proceed-btn">Agregar producto</button>
+                                    <button type="button" id="btn-cancel" class="btn btn-2-animation btn-animation fw-bold proceed-btn ms-2 d-none">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-9">
+                <div class="cart-table">
+                    <div class="table-responsive-xl">
+                        <table class="table" id="tableProducts">
+                            <tbody>
+                                {{#each products}}
+                                <tr class="product-box-contain" data-tr-id="{{id}}">
+                                    <td class="product-detail">
+                                        <div class="product border-0">
+                                            <a href="#" class="product-image">
+                                                <img src="{{image}}"
+                                                    class="img-fluid blur-up lazyload" alt="{{name}}">
+                                            </a>
+                                            <div class="product-detail">
+                                                <ul>
+                                                    <li class="name"><a href="#">{{name}}</a></li>
+                                                    <!--<li class="text-content"><span class="text-title">Categoría:</span> cat</li>-->
+                                                    <li class="text-content"><span class="text-title">Código:</span> {{code}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td class="price">
+                                        <h4 class="table-title text-content">Descripción</h4>
+                                        <h5>{{description}}</h5>
+                                    </td>
+
+                                    <td class="price">
+                                        <h4 class="table-title text-content">Precio</h4>
+                                        <h5>${{price}}</h5>
+                                    </td>
+
+                                    <td class="price">
+                                        <h4 class="table-title text-content">Stock</h4>
+                                        <h5>{{stock}}</h5>
+                                    </td>
+
+                                    <td class="save-remove">
+                                        <h4 class="table-title text-content">Acciones</h4>
+                                        <a href="#" data-id="{{id}}" data-id="{{id}}" class="edit px-1 mx-2 btn-edit">
+                                            <i class="fas fa-edit btn-edit" data-id="{{id}}"></i>
+                                        </a>
+                                        <a href="#" data-id="{{id}}" data-id="{{id}}" class="remove px-1 mx-2 btn-delete">
+                                            <i class="fas fa-trash btn-delete" data-id="{{id}}"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Cart Section End -->
+
+<!-- Footer Section Start -->
+{{> footer}}
+<!-- Footer Section End -->
+
+<!-- Add to cart Modal Start -->
+<div class="add-cart-box">
+    <div class="add-iamge">
+        <img src="/assets/images/cake/pro/1.jpg" class="img-fluid blur-up lazyload" alt="">
+    </div>
+
+    <div class="add-contain">
+        <h6>Added to Cart</h6>
+    </div>
+</div>
+<!-- Add to cart Modal End -->
+
+<!-- Tap to top start -->
+<div class="theme-option">
+    <div class="back-to-top">
+        <a id="back-to-top" href="#">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+</div>
+<!-- Tap to top end -->
+
+<!-- Bg overlay Start -->
+<div class="bg-overlay"></div>
+<!-- Bg overlay End -->
+
+<!-- Sweet alert -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Handlebars -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+
+
+<!-- latest jquery-->
+<script src="/assets/js/jquery-3.6.0.min.js"></script>
+
+<!-- jquery ui-->
+<script src="/assets/js/jquery-ui.min.js"></script>
+
+<!-- Bootstrap js-->
+<script src="/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/bootstrap/bootstrap-notify.min.js"></script>
+<script src="/assets/js/bootstrap/popper.min.js"></script>
+
+<!-- feather icon js-->
+<script src="/assets/js/feather/feather.min.js"></script>
+<script src="/assets/js/feather/feather-icon.js"></script>
+
+<!-- Lazyload Js -->
+<script src="/assets/js/lazysizes.min.js"></script>
+
+<!-- Slick js-->
+<script src="/assets/js/slick/slick.js"></script>
+<script src="/assets/js/slick/slick-animation.min.js"></script>
+<script src="/assets/js/slick/custom_slick.js"></script>
+
+<!-- Price Range Js -->
+<script src="/assets/js/ion.rangeSlider.min.js"></script>
+
+<!-- sidebar open js -->
+<script src="/assets/js/filter-sidebar.js"></script>
+
+<!-- Quantity js -->
+<script src="/assets/js/quantity-3.js"></script>
+
+<!-- WOW js -->
+<script src="/assets/js/wow.min.js"></script>
+<script src="/assets/js/custom-wow.js"></script>
+
+<!-- script js -->
+<script src="/assets/js/script.js"></script>
+
+<!-- Custom js -->
+<script src="/js/products.js"></script>
+<script src="/js/cart.js"></script>

@@ -1,0 +1,193 @@
+<!-- Loader Start -->
+{{> fullpage-loader }}
+<!-- Loader End -->
+
+<!-- Header Start -->
+{{> header }}
+<!-- Header End -->
+
+<!-- Breadcrumb Section Start -->
+{{> breadcrumb }}
+<!-- Breadcrumb Section End -->
+
+<!-- Cart Section Start -->
+<section class="cart-section section-b-space">
+    <div class="container-fluid-lg">
+        <div class="row g-sm-5 g-3">
+            <div class="col-xxl-9">
+                <div class="cart-table">
+                    <div class="table-responsive-xl">
+                        <table class="table">
+                            <tbody>
+                                {{#each cart.products}}
+                                <tr class="product-box-contain" data-tr-id="{{_id}}">
+                                    <td class="product-detail">
+                                        <div class="product border-0">
+                                            <a href="#" class="product-image">
+                                                <img src="{{image}}"
+                                                    class="img-fluid blur-up lazyload" alt="{{name}}">
+                                            </a>
+                                            <div class="product-detail">
+                                                <ul>
+                                                    <li class="name">
+                                                        <a href="#">{{name}}</a>
+                                                    </li>
+                                                    <li class="text-content">{{description}}</li>
+
+                                                    <li class="text-content"><span class="text-title">Código:</span> {{code}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td class="price priceCart" data-price="{{price}}" data-id="{{_id}}">
+                                        <h4 class="table-title text-content">Precio</h4>
+                                        <h5>${{price}}</h5>
+                                    </td>
+
+                                    <td class="quantity">
+                                        <h4 class="table-title text-content">Cant</h4>
+                                        <div class="quantity-price">
+                                            <div class="cart_qty">
+                                                <div class="input-group">
+                                                    <button type="button" class="btn qty-left-minus"
+                                                        data-type="minus" data-field="" data-id="{{_id}}">
+                                                        <i class="fa fa-minus ms-0" aria-hidden="true"></i>
+                                                    </button>
+                                                    <input class="form-control input-number qty-input" type="text"
+                                                        name="quantity" value="{{stock}}">
+                                                    <button type="button" class="btn qty-right-plus"
+                                                        data-type="plus" data-field="" data-id="{{_id}}">
+                                                        <i class="fa fa-plus ms-0" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td class="subtotal">
+                                        <h4 class="table-title text-content">Total</h4>
+                                        <h5 class="total">${{ ../helpers.multiply price stock}}</h5>
+                                    </td>
+
+                                    <td class="save-remove">
+                                        <h4 class="table-title text-content">Acciones</h4>
+                                        <a href="#" data-id="{{_id}}" class="remove px-1 mx-2 btn-delete">
+                                            <i class="fas fa-trash btn-delete" data-id="{{_id}}"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-3">
+                <div class="summery-box p-sticky">
+                    <div class="summery-header">
+                        <h3>Monto total</h3>
+                    </div>
+
+                    <div class="summery-contain">
+                        <div class="coupon-cart">
+                            <h6 class="text-content mb-2">Agregar cupón</h6>
+                            <div class="mb-3 coupon-box input-group">
+                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Ingrese código de cupón...">
+                                <button class="btn-apply">Aplicar</button>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                <h4>Subtotal</h4>
+                                <h4 class="price subtotalCart">${{helpers.calcTotal cart.products}}</h4>
+                            </li>
+
+                            <li>
+                                <h4>Cupón de descuento</h4>
+                                <h4 class="price">(-) $0.00</h4>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <ul class="summery-total">
+                        <li class="list-total border-top-0">
+                            <h4>Total (ARS)</h4>
+                            <h4 class="price theme-color totalCart">${{helpers.calcTotal cart.products}}</h4>
+                        </li>
+                    </ul>
+
+                    <div class="button-group cart-button">
+                        <ul>
+                            {{#if cart.products.length}}
+                            <li class="btnCheckout">
+                                <button class="btn btn-animation proceed-btn fw-bold">Procesar compra</button>
+                            </li>
+                            {{/if}}
+
+                            <li>
+                                <button onclick="location.href = '/';"
+                                    class="btn btn-light shopping-button text-dark">
+                                    <i class="fa-solid fa-arrow-left-long"></i>Seguir comprando</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Cart Section End -->
+
+<!-- Footer Section Start -->
+{{> footer}}
+<!-- Footer Section End -->
+
+<!-- Tap to top start -->
+<div class="theme-option">
+    <div class="back-to-top">
+        <a id="back-to-top" href="#">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+</div>
+<!-- Tap to top end -->
+
+<!-- Bg overlay Start -->
+<div class="bg-overlay"></div>
+<!-- Bg overlay End -->
+
+<!-- latest jquery-->
+<script src="/assets/js/jquery-3.6.0.min.js"></script>
+
+<!-- jquery ui-->
+<script src="/assets/js/jquery-ui.min.js"></script>
+
+<!-- Sweet alert -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Bootstrap js-->
+<script src="/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/bootstrap/popper.min.js"></script>
+<script src="/assets/js/bootstrap/bootstrap-notify.min.js"></script>
+
+<!-- feather icon js-->
+<script src="/assets/js/feather/feather.min.js"></script>
+<script src="/assets/js/feather/feather-icon.js"></script>
+
+<!-- Lazyload Js -->
+<script src="/assets/js/lazysizes.min.js"></script>
+
+<!-- Slick js-->
+<script src="/assets/js/slick/slick.js"></script>
+<script src="/assets/js/slick/custom_slick.js"></script>
+
+<!-- Quantity js -->
+<script src="/assets/js/quantity.js"></script>
+
+<!-- script js -->
+<script src="/assets/js/script.js"></script>
+<script src="/js/cart.js"></script>

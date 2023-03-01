@@ -1,0 +1,42 @@
+<tr class="product-box-contain" data-tr-id="{{id}}">
+    <td class="product-detail">
+        <div class="product border-0">
+            <a href="#" class="product-image">
+                <img src="{{image}}"
+                    class="img-fluid blur-up lazyload" alt="{{name}}">
+            </a>
+            <div class="product-detail">
+                <ul>
+                    <li class="name"><a href="#">{{name}}</a></li>
+                    <!--<li class="text-content"><span class="text-title">Categoría:</span> cat</li>-->
+                    <li class="text-content"><span class="text-title">Código:</span> {{code}}</li>
+                </ul>
+            </div>
+        </div>
+    </td>
+
+    <td class="price">
+        <h4 class="table-title text-content">Descripción</h4>
+        <h5>{{description}}</h5>
+    </td>
+
+    <td class="price">
+        <h4 class="table-title text-content">Precio</h4>
+        <h5>${{price}}</h5>
+    </td>
+
+    <td class="price">
+        <h4 class="table-title text-content">Stock</h4>
+        <h5>{{stock}}</h5>
+    </td>
+
+    <td class="save-remove">
+        <h4 class="table-title text-content">Acciones</h4>
+        <a href="#" data-id="{{id}}" data-id="{{id}}" class="edit px-1 mx-2 btn-edit">
+            <i class="fas fa-edit btn-edit" data-id="{{id}}"></i>
+        </a>
+        <a href="#" data-id="{{id}}" data-id="{{id}}" class="remove px-1 mx-2 btn-delete">
+            <i class="fas fa-trash btn-delete" data-id="{{id}}"></i>
+        </a>
+    </td>
+</tr>

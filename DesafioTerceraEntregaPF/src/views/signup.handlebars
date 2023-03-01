@@ -1,0 +1,98 @@
+<!-- Loader Start -->
+{{> fullpage-loader }}
+<!-- Loader End -->
+<!-- log in section start -->
+<section class="log-in-section section-b-space">
+    <div class="container-fluid-lg w-100">
+        <div class="row">
+            <div class="col-xxl-4 col-lg-6 offset-lg-3 offset-xxl-4 me-auto">
+                <div class="log-in-box">
+                    <div class="log-in-title">
+                        <h3>Bienvenido</h3>
+                        <h4>Registrarse</h4>
+                    </div>
+                    <div id="errMsg"></div>
+                    <div class="input-box">
+                        <form class="row g-4" id="formSignUp">
+                            <div class="col-12">
+                                <div class="form-floating theme-form-floating">
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Email" required>
+                                    <label for="username">Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating theme-form-floating">
+                                    <input type="password" class="form-control" id="password" name="password"
+                                        placeholder="Contraseña" required>
+                                    <label for="password">Contraseña</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating theme-form-floating">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
+                                    <label for="name">Nombre</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating theme-form-floating">
+                                    <input type="text" class="form-control" id="address" name="address" placeholder="Dirección" required>
+                                    <label for="address">Dirección</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating theme-form-floating">
+                                    <input type="number" class="form-control" id="age" name="age" placeholder="Edad" required>
+                                    <label for="age">Edad</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating theme-form-floating">
+                                    <input type="text" class="form-control input-element" id="phone" name="phone" placeholder="Celular" required>
+                                    <label for="phone">Celular</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating theme-form-floating">
+                                    <input type="file" class="form-control" id="avatar" name="avatar" placeholder="Avatar" required>
+                                    <label for="avatar">Avatar</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-animation w-100" id="btnSingup" type="submit">Registrarse</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="sign-up-box">
+                        <h4>¿Ya tenes cuenta?</h4>
+                        <a href="/login">Iniciar sesión</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-7 col-xl-6 col-lg-6"></div>
+        </div>
+    </div>
+</section>
+<!-- log in section end -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- latest jquery-->
+<script src="/assets/js/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap js-->
+<script src="/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/bootstrap/popper.min.js"></script>
+
+<!-- feather icon js-->
+<script src="/assets/js/feather/feather.min.js"></script>
+<script src="/assets/js/feather/feather-icon.js"></script>
+
+<!-- Lazyload Js -->
+<script src="/assets/js/lazysizes.min.js"></script>
+
+<!-- script js -->
+<script src="/assets/js/script.js"></script>
+
+<!-- Custom js -->
+<script src="/js/cleave.min.js"></script>
+<script src="/js/cleave-phone.ar.js"></script>
+<script src="/js/signup.js"></script>

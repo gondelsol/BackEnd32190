@@ -1,0 +1,11 @@
+{"code":"EAUTH","command":"AUTH PLAIN","level":"error","response":"535 Authentication failed","responseCode":535}
+{"code":"EAUTH","command":"AUTH PLAIN","level":"error","response":"535 Authentication failed","responseCode":535}
+{"code":"EAUTH","command":"AUTH PLAIN","level":"error","response":"535 Authentication failed","responseCode":535}
+{"code":"EAUTH","command":"AUTH PLAIN","level":"error","response":"535 Authentication failed","responseCode":535}
+{"code":"EAUTH","command":"AUTH PLAIN","level":"error","response":"534-5.7.9 Application-specific password required. Learn more at\n534 5.7.9  https://support.google.com/mail/?p=InvalidSecondFactor 4-20020a9f2684000000b00385e2d7dd7csm2711484uay.11 - gsmtp","responseCode":534}
+{"level":"warn","message":"Error al obtener: product validation failed: stock: Path `stock` is required., price: Path `price` is required., image: Path `image` is required., code: Path `code` is required., description: Path `description` is required., name: Path `name` is required."}
+{"level":"warn","message":"Error al obtener: product validation failed: stock: Path `stock` is required., price: Path `price` is required., image: Path `image` is required., code: Path `code` is required., description: Path `description` is required., name: Path `name` is required."}
+{"level":"warn","message":"Error al obtener: product validation failed: stock: Path `stock` is required., price: Path `price` is required., image: Path `image` is required., code: Path `code` is required., description: Path `description` is required., name: Path `name` is required."}
+{"level":"warn","message":"Error al obtener: Cast to ObjectId failed for value \"[object HTMLInputElement]\" (type string) at path \"_id\" for model \"cart\""}
+{"level":"warn","message":"Error al actualizar: Cast to ObjectId failed for value \"[object HTMLInputElement]\" (type string) at path \"_id\" for model \"product\""}
+{"level":"warn","message":"Error al actualizar: Cast to ObjectId failed for value \"[object HTMLInputElement]\" (type string) at path \"_id\" for model \"product\""}

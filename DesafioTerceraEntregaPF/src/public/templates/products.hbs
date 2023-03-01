@@ -1,0 +1,37 @@
+    {{#if products.length}}
+    <div class="table-responsive">
+        <table class="table table-light table-hover" id="tproducts">
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Código</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Foto</th>
+                <th>Acciones</th>
+            </tr>
+            {{#each products}}
+            <tr data-tr-id="{{id}}">
+                <td>{{name}}</td>
+                <td>{{description}}</td>
+                <td>{{code}}</td>
+                <td>{{price}}</td>
+                <td>{{stock}}</td>
+                <td><img src="{{image}}" style="max-height: 30px; vertical-align:middle;"></td>
+                <td>
+                    <a href="#" data-id="{{id}}" class="btn btn-primary btn-sm px-2 btn-edit">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="#" data-id="{{id}}" class="btn btn-danger btn-sm px-2 btn-delete">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+    {{else}}
+    <div class="alert alert-warning" role="alert">
+        No se encontraron productos
+    </div>
+    {{/if}}
